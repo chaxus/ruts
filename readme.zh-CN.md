@@ -1,6 +1,6 @@
 # Ruts
 
-[![Rust](https://img.shields.io/badge/Rust-1.70+-blue.svg)](https://www.rust-lang.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.88.0-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Cargo](https://img.shields.io/crates/v/ruts.svg)](https://crates.io/crates/ruts)
 
@@ -15,7 +15,7 @@
 
 ## 📋 前置要求
 
-- **Rust**: 最新稳定版本（推荐 1.70+）
+- **Rust**: 最新稳定版本（推荐 1.88.0+）
 - **cargo-workspaces**: 用于工作空间管理
 
 ## 🛠️ 安装

@@ -10,9 +10,48 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          components: rustfmt, clippy
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Cache cargo-workspaces
+        uses: actions/cache@v3
+        with:
+          path: ~/.cargo/bin
+          key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-workspaces-
+      - name: Install cargo-workspaces
+        run: |
+          if ! command -v cargo-workspaces &> /dev/null; then
+            cargo install cargo-workspaces
+          fi
+      - name: Upload cargo-workspaces
+        uses: actions/upload-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin/cargo-workspaces
+
   fmt:
     name: Format
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rs/toolchain@v1
@@ -20,11 +59,28 @@ jobs:
           toolchain: stable
           override: true
           components: rustfmt
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Download cargo-workspaces
+        uses: actions/download-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin
+      - run: chmod +x ~/.cargo/bin/cargo-workspaces
       - run: cargo ws exec -- cargo fmt -- --check
 
   clippy:
     name: Clippy
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - uses: actions/checkout@v4
       - uses: actions-rs/toolchain@v1
@@ -32,6 +88,22 @@ jobs:
           toolchain: stable
           override: true
           components: clippy
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Download cargo-workspaces
+        uses: actions/download-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin
+      - run: chmod +x ~/.cargo/bin/cargo-workspaces
       - run: cargo ws exec -- cargo clippy -- -D warnings --allow unexpected-cfgs
 
   build:
@@ -44,6 +116,22 @@ jobs:
         with:
           toolchain: stable
           override: true
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Download cargo-workspaces
+        uses: actions/download-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin
+      - run: chmod +x ~/.cargo/bin/cargo-workspaces
       - run: cargo ws exec -- cargo build
 
   test:
@@ -56,6 +144,22 @@ jobs:
         with:
           toolchain: stable
           override: true
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Download cargo-workspaces
+        uses: actions/download-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin
+      - run: chmod +x ~/.cargo/bin/cargo-workspaces
       - run: cargo ws exec -- cargo test
 
   audit:
@@ -68,6 +172,22 @@ jobs:
         with:
           toolchain: stable
           override: true
+      - name: Cache Rust dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      - name: Download cargo-workspaces
+        uses: actions/download-artifact@v3
+        with:
+          name: cargo-workspaces
+          path: ~/.cargo/bin
+      - run: chmod +x ~/.cargo/bin/cargo-workspaces
       - run: cargo install cargo-audit
       - run: cargo audit
         continue-on-error: true

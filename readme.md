@@ -67,34 +67,31 @@ This project follows Rust formatting standards using `rustfmt` with a custom con
 
 ### Formatting Commands
 
-#### Format a single file
+#### Format entire workspace
 ```bash
-rustfmt src/main.rs
+# Format all workspace members
+cargo ws exec -- cargo fmt
+
+# Check formatting without changes
+cargo ws exec -- cargo fmt -- --check
 ```
 
-#### Format entire project
+#### Format specific crate
 ```bash
-# Run from project root
-cargo fmt
-```
+# Format a specific crate
+cargo fmt -p <crate-name>
 
-#### Format specific directory
-```bash
-rustfmt src/
-```
-
-#### Check formatting without changes
-```bash
-cargo fmt -- --check
+# Check formatting for a specific crate
+cargo fmt -p <crate-name> -- --check
 ```
 
 #### Format with specific options
 ```bash
 # Format with verbose output
-cargo fmt --verbose
+cargo ws exec -- cargo fmt --verbose
 
 # Format specific files
-cargo fmt -- src/lib.rs src/main.rs
+cargo ws exec -- cargo fmt -- src/lib.rs src/main.rs
 ```
 
 ### Linting
@@ -102,14 +99,33 @@ cargo fmt -- src/lib.rs src/main.rs
 Run Clippy for additional code quality checks:
 
 ```bash
-# Run Clippy
-cargo clippy
+# Run Clippy on all workspace members
+cargo ws exec -- cargo clippy -- -D warnings --allow unexpected-cfgs
+
+# Run Clippy on specific crate
+cargo clippy -p <crate-name> -- -D warnings --allow unexpected-cfgs
 
 # Run Clippy with all warnings
-cargo clippy -- -W clippy::all
+cargo ws exec -- cargo clippy -- -W clippy::all
 
 # Run Clippy with specific checks
-cargo clippy -- -D clippy::pedantic
+cargo ws exec -- cargo clippy -- -D clippy::pedantic
+```
+
+### Code Quality Checks
+
+```bash
+# Check all workspace members
+cargo ws exec -- cargo check
+
+# Build all workspace members
+cargo ws exec -- cargo build
+
+# Test all workspace members
+cargo ws exec -- cargo test
+
+# Run security audit
+cargo audit
 ```
 
 ## 📁 Project Structure

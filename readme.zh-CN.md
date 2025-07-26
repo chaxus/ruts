@@ -67,34 +67,31 @@ cargo ws --help
 
 ### 格式化命令
 
-#### 格式化单个文件
+#### 格式化整个工作空间
 ```bash
-rustfmt src/main.rs
+# 格式化所有工作空间成员
+cargo ws exec -- cargo fmt
+
+# 检查格式化而不修改
+cargo ws exec -- cargo fmt -- --check
 ```
 
-#### 格式化整个项目
+#### 格式化特定 crate
 ```bash
-# 在项目根目录运行
-cargo fmt
-```
+# 格式化特定 crate
+cargo fmt -p <crate-name>
 
-#### 格式化特定目录
-```bash
-rustfmt src/
-```
-
-#### 检查格式化而不修改
-```bash
-cargo fmt -- --check
+# 检查特定 crate 的格式化
+cargo fmt -p <crate-name> -- --check
 ```
 
 #### 使用特定选项格式化
 ```bash
 # 详细输出格式化
-cargo fmt --verbose
+cargo ws exec -- cargo fmt --verbose
 
 # 格式化特定文件
-cargo fmt -- src/lib.rs src/main.rs
+cargo ws exec -- cargo fmt -- src/lib.rs src/main.rs
 ```
 
 ### 代码检查
@@ -102,14 +99,33 @@ cargo fmt -- src/lib.rs src/main.rs
 运行 Clippy 进行额外的代码质量检查：
 
 ```bash
-# 运行 Clippy
-cargo clippy
+# 对所有工作空间成员运行 Clippy
+cargo ws exec -- cargo clippy -- -D warnings --allow unexpected-cfgs
+
+# 对特定 crate 运行 Clippy
+cargo clippy -p <crate-name> -- -D warnings --allow unexpected-cfgs
 
 # 运行 Clippy 并显示所有警告
-cargo clippy -- -W clippy::all
+cargo ws exec -- cargo clippy -- -W clippy::all
 
 # 运行 Clippy 并进行特定检查
-cargo clippy -- -D clippy::pedantic
+cargo ws exec -- cargo clippy -- -D clippy::pedantic
+```
+
+### 代码质量检查
+
+```bash
+# 检查所有工作空间成员
+cargo ws exec -- cargo check
+
+# 构建所有工作空间成员
+cargo ws exec -- cargo build
+
+# 测试所有工作空间成员
+cargo ws exec -- cargo test
+
+# 运行安全审计
+cargo audit
 ```
 
 ## 📁 项目结构

@@ -3,6 +3,8 @@
 [![Rust](https://img.shields.io/badge/Rust-1.88.0-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+📖 **[中文文档](readme.zh-CN.md)** | **English**
+
 A modern Rust workspace project managed with [cargo-workspaces](https://github.com/pksunkara/cargo-workspaces) for efficient multi-crate development.
 
 ## 🚀 Features
@@ -257,7 +259,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Rust Reference](https://doc.rust-lang.org/reference/)
 - [Cargo Book](https://doc.rust-lang.org/cargo/)
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
-
----
-
-📖 **For Chinese documentation, see [readme.zh-CN.md](readme.zh-CN.md).**

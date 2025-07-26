@@ -3,6 +3,8 @@
 [![Rust](https://img.shields.io/badge/Rust-1.88.0-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+📖 **中文** | **[English](README.md)**
+
 一个使用 [cargo-workspaces](https://github.com/pksunkara/cargo-workspaces) 管理的现代 Rust 工作空间项目，用于高效的多 crate 开发。
 
 ## 🚀 特性
@@ -257,7 +259,3 @@ repository = "https://github.com/yourusername/ruts"
 - [Rust 参考手册](https://doc.rust-lang.org/reference/)
 - [Cargo 手册](https://doc.rust-lang.org/cargo/)
 - [Rust 示例](https://doc.rust-lang.org/rust-by-example/)
-
----
-
-📖 **For English documentation, see [README.md](README.md).**

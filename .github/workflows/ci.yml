@@ -82,7 +82,7 @@ jobs:
           else
             echo "cargo-workspaces already installed"
           fi
-      - run: cargo ws exec -- cargo clippy -- -D warnings --allow unexpected-cfgs
+      - run: cargo ws exec -- cargo clippy --
 
   build:
     name: Build

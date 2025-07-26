@@ -1,0 +1,26 @@
+[package]
+name = "bulls-and-cows"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+anchor-lang = "0.29.0"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[package.metadata.solana]
+program = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+
+# Allow unexpected cfg values used by Anchor and Solana
+[package.metadata.cargo-udeps.ignore]
+normal = [
+    "anchor-debug",
+    "no-entrypoint", 
+    "cpi",
+    "custom-heap",
+    "custom-panic",
+    "no-idl",
+    "no-log-ix-name",
+    "solana"
+]

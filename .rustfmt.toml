@@ -11,66 +11,23 @@ hard_tabs = false                 # Use spaces instead of tabs
 newline_style = "Unix"            # Use Unix-style line endings
 
 # Import settings
-imports_granularity = "Module"    # Group imports by module
-group_imports = "StdExternalCrate" # Group standard library, external crates, local modules
-imports_layout = "HorizontalVertical" # Import layout
+reorder_imports = true            # Reorder imports
+reorder_modules = true            # Reorder modules
 
 # Function settings
 fn_call_width = 60                # Function call width
 fn_params_layout = "Tall"         # Function parameter layout
-fn_single_line = false            # Single line function settings
-
-# Control flow settings
-control_brace_style = "AlwaysNextLine" # if/else brace style
-else_trailing_comma = false       # No trailing comma after else
-empty_item_single_line = false    # Empty item single line settings
 
 # Expression settings
-binop_separator = "Front"         # Binary operator separator position
 match_arm_leading_pipes = "Never" # Match arm leading pipes
 match_block_trailing_comma = false # Match block trailing comma
-
-# Comment settings
-comment_width = 80                # Comment width
-wrap_comments = true              # Auto-wrap comments
 
 # Other settings
 merge_derives = true              # Merge derive attributes
 use_small_heuristics = "Default"  # Use heuristic rules
-format_code_in_doc_comments = true # Format code in doc comments
-format_strings = true             # Format strings
-format_macro_matchers = true      # Format macro matchers
-format_macro_bodies = true        # Format macro bodies
 
 # Chain call settings
 chain_width = 60                  # Chain call width
-chain_split_single_child = true   # Split chain with single child
-
-# Struct settings
-struct_field_align_threshold = 0  # Struct field alignment threshold
-struct_lit_single_line = false    # Struct literal single line settings
 
 # Array settings
 array_width = 60                  # Array width
-array_layout = "Tall"             # Array layout
-
-# Closure settings
-closure_width = 60                # Closure width
-
-# Type settings
-type_punctuation_density = "Wide" # Type punctuation density
-type_layout = "Tall"              # Type layout
-
-# Space settings
-spaces_around_ranges = false      # Spaces around range operators
-space_before_colon = false        # Space before colon
-space_after_colon = false         # Space after colon
-spaces_in_patterns = false        # Spaces in patterns
-
-# Other formatting options
-reorder_imports = true            # Reorder imports
-reorder_modules = true            # Reorder modules
-reorder_impl_items = false        # Reorder impl items
-normalize_comments = true         # Normalize comments
-normalize_doc_attributes = true   # Normalize doc attributes
-license_template_path = ""        # License template path

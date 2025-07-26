@@ -20,11 +20,9 @@ pub mod anchor_bac {
         let target = guessing_account.number;
 
         match number.cmp(&target) {
-            Ordering::Less => return err!(MyError::NumberTooSmall),
-            Ordering::Greater => {
-                return err!(MyError::NumberTooLarge);
-            }
-            Ordering::Equal => return Ok(()),
+            Ordering::Less => err!(MyError::NumberTooSmall),
+            Ordering::Greater => err!(MyError::NumberTooLarge),
+            Ordering::Equal => Ok(()),
         }
     }
 }
@@ -32,8 +30,7 @@ pub mod anchor_bac {
 fn generate_random_number() -> u32 {
     let clock = Clock::get().expect("Failed to get clock");
     let last_digit = (clock.unix_timestamp % 10) as u8;
-    let result = (last_digit + 1) as u32;
-    result
+    (last_digit + 1) as u32
 }
 
 #[account]

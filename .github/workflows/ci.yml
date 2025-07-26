@@ -43,7 +43,7 @@ jobs:
             cargo install cargo-workspaces
           fi
       - name: Upload cargo-workspaces
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin/cargo-workspaces
@@ -70,7 +70,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Download cargo-workspaces
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin
@@ -99,7 +99,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Download cargo-workspaces
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin
@@ -127,7 +127,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Download cargo-workspaces
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin
@@ -155,7 +155,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Download cargo-workspaces
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin
@@ -183,7 +183,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Download cargo-workspaces
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cargo-workspaces
           path: ~/.cargo/bin

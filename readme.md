@@ -35,8 +35,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install cargo-workspaces
 ```
 
-> **Note**: This project uses a forked version of cargo-workspaces: https://github.com/chaxus/cargo-workspaces
-
 ## 🏗️ Workspace Management
 
 ### Initialize Workspace

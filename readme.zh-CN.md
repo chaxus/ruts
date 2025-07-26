@@ -35,8 +35,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install cargo-workspaces
 ```
 
-> **注意**: 本项目使用 cargo-workspaces 的分支版本：https://github.com/chaxus/cargo-workspaces
-
 ## 🏗️ 工作空间管理
 
 ### 初始化工作空间

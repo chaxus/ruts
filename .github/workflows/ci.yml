@@ -21,7 +21,7 @@ jobs:
           override: true
           components: rustfmt
       - name: Cache Rust dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -31,7 +31,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Cache cargo-workspaces
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}
@@ -58,7 +58,7 @@ jobs:
           override: true
           components: clippy
       - name: Cache Rust dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -68,7 +68,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Cache cargo-workspaces
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}
@@ -95,7 +95,7 @@ jobs:
           toolchain: stable
           override: true
       - name: Cache Rust dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -105,7 +105,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Cache cargo-workspaces
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}
@@ -132,7 +132,7 @@ jobs:
           toolchain: stable
           override: true
       - name: Cache Rust dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -142,7 +142,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Cache cargo-workspaces
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}
@@ -169,7 +169,7 @@ jobs:
           toolchain: stable
           override: true
       - name: Cache Rust dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/registry
@@ -179,7 +179,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
       - name: Cache cargo-workspaces
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-cargo-workspaces-${{ hashFiles('**/Cargo.lock') }}

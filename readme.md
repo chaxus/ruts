@@ -2,7 +2,6 @@
 
 [![Rust](https://img.shields.io/badge/Rust-1.88.0-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Cargo](https://img.shields.io/crates/v/ruts.svg)](https://crates.io/crates/ruts)
 
 A modern Rust workspace project managed with [cargo-workspaces](https://github.com/pksunkara/cargo-workspaces) for efficient multi-crate development.
 

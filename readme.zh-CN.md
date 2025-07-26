@@ -2,7 +2,6 @@
 
 [![Rust](https://img.shields.io/badge/Rust-1.88.0-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Cargo](https://img.shields.io/crates/v/ruts.svg)](https://crates.io/crates/ruts)
 
 一个使用 [cargo-workspaces](https://github.com/pksunkara/cargo-workspaces) 管理的现代 Rust 工作空间项目，用于高效的多 crate 开发。
 

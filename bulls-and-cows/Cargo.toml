@@ -4,7 +4,7 @@ version = "0.0.0"
 edition = "2024"
 
 [dependencies]
-anchor-lang = "0.29.0"
+anchor-lang = "0.31.1"
 
 [lib]
 crate-type = ["cdylib", "lib"]
@@ -23,4 +23,10 @@ normal = [
     "no-idl",
     "no-log-ix-name",
     "solana"
+]
+
+# Security audit configuration
+[package.metadata.cargo-audit]
+ignore = [
+    # Allow warnings for unmaintained crates that are transitive dependencies       
 ]

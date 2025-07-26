@@ -125,7 +125,7 @@ cargo ws exec -- cargo build
 cargo ws exec -- cargo test
 
 # 运行安全审计
-cargo audit
+cargo audit --deny warnings
 ```
 
 ## 📁 项目结构

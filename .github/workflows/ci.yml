@@ -194,5 +194,5 @@ jobs:
             echo "cargo-workspaces already installed"
           fi
       - run: cargo install cargo-audit
-      - run: cargo audit
+      - run: cargo audit --deny warnings
         continue-on-error: true

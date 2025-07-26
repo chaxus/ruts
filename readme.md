@@ -125,7 +125,7 @@ cargo ws exec -- cargo build
 cargo ws exec -- cargo test
 
 # Run security audit
-cargo audit
+cargo audit --deny warnings
 ```
 
 ## 📁 Project Structure

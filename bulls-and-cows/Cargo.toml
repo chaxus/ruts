@@ -1,16 +1,20 @@
 [package]
 name = "bulls-and-cows"
 version = "0.0.0"
-edition = "2024"
+edition = "2021"
+
+[profile.release]
+overflow-checks = true
 
 [dependencies]
 anchor-lang = "0.31.1"
+solana-program = "1.18.0"
 
 [lib]
 crate-type = ["cdylib", "lib"]
 
 [package.metadata.solana]
-program = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+program = "3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc"
 
 # Allow unexpected cfg values used by Anchor and Solana
 [package.metadata.cargo-udeps.ignore]

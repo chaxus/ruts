@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use solana_program::clock::Clock;
+use solana_program::sysvar::Sysvar;
 
 declare_id!("3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc");
 

@@ -16,18 +16,12 @@ crate-type = ["cdylib", "lib"]
 [package.metadata.solana]
 program = "3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc"
 
-# Allow unexpected cfg values used by Anchor and Solana
-[package.metadata.cargo-udeps.ignore]
-normal = [
-    "anchor-debug",
-    "no-entrypoint", 
-    "cpi",
-    "custom-heap",
-    "custom-panic",
-    "no-idl",
-    "no-log-ix-name",
-    "solana"
-]
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
 
 # Security audit configuration
 [package.metadata.cargo-audit]

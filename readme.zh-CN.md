@@ -68,6 +68,7 @@ cargo ws --help
 ### 格式化命令
 
 #### 格式化整个工作空间
+
 ```bash
 # 格式化所有工作空间成员
 cargo ws exec -- cargo fmt
@@ -77,6 +78,7 @@ cargo ws exec -- cargo fmt -- --check
 ```
 
 #### 格式化特定 crate
+
 ```bash
 # 格式化特定 crate
 cargo fmt -p <crate-name>
@@ -86,6 +88,7 @@ cargo fmt -p <crate-name> -- --check
 ```
 
 #### 使用特定选项格式化
+
 ```bash
 # 详细输出格式化
 cargo ws exec -- cargo fmt --verbose

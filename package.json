@@ -1,0 +1,25 @@
+{
+  "name": "@ruts/monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo",
+  "type": "module",
+  "engines": {
+    "node": ">=23.10.0"
+  },
+  "scripts": {
+    "format": "prettier --write --cache ."
+  },
+  "keywords": [],
+  "author": "chaxus",
+  "license": "MIT",
+  "homepage": "https://github.com/chaxus/ruts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chaxus/ruts.git"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.7",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
+  }
+}

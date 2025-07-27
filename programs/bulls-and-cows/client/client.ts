@@ -1,17 +1,14 @@
-import * as web3 from "@solana/web3.js";
-import * as anchor from "@coral-xyz/anchor";
-import type { BullsAndCows } from "../target/types/bulls_and_cows";
+import * as web3 from '@solana/web3.js';
+import * as anchor from '@coral-xyz/anchor';
+import type { BullsAndCows } from '../target/types/bulls_and_cows';
 
 // Configure the client to use the local cluster
 anchor.setProvider(anchor.AnchorProvider.env());
 
 const program = anchor.workspace.BullsAndCows as anchor.Program<BullsAndCows>;
 
-const seeds = Buffer.from("guessing pda");
-const guessingPdaPubkey = anchor.web3.PublicKey.findProgramAddressSync(
-  [seeds],
-  program.programId
-);
+const seeds = Buffer.from('guessing pda');
+const guessingPdaPubkey = anchor.web3.PublicKey.findProgramAddressSync([seeds], program.programId);
 
 async function initialize() {
   try {
@@ -24,10 +21,7 @@ async function initialize() {
       })
       .rpc();
 
-    console.log(
-      "Initialize successfully!\n Your transaction signature is:",
-      initializeTx
-    );
+    console.log('Initialize successfully!\n Your transaction signature is:', initializeTx);
   } catch (errors: any) {
     console.log(errors);
   }

@@ -68,6 +68,7 @@ This project follows Rust formatting standards using `rustfmt` with a custom con
 ### Formatting Commands
 
 #### Format entire workspace
+
 ```bash
 # Format all workspace members
 cargo ws exec -- cargo fmt
@@ -77,6 +78,7 @@ cargo ws exec -- cargo fmt -- --check
 ```
 
 #### Format specific crate
+
 ```bash
 # Format a specific crate
 cargo fmt -p <crate-name>
@@ -86,6 +88,7 @@ cargo fmt -p <crate-name> -- --check
 ```
 
 #### Format with specific options
+
 ```bash
 # Format with verbose output
 cargo ws exec -- cargo fmt --verbose

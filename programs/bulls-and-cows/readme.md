@@ -27,7 +27,6 @@ anchor --version
 echo 'export PATH="/Users/chaxus/.avm/bin:$PATH"' >> ~/.zshrc
 ```
 
-
 # Solana CLI
 
 Solana CLI 提供了构建和部署 Solana 程序所需的所有工具。

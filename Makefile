@@ -4,4 +4,7 @@ format:
 
 clean:
 	cargo ws exec -- cargo clean
-	
+
+install:
+	pnpm install
+	cargo ws exec -- cargo install cargo-workspaces

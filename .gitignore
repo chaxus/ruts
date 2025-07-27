@@ -1,5 +1,5 @@
 # Rust
-/target/
+target/
 **/*.rs.bk
 Cargo.lock
 
@@ -77,5 +77,5 @@ docs/_build/
 *.bak
 *.backup
 
-# anchor / solana build
-target/
+# pnpm
+pnpm-lock.yaml

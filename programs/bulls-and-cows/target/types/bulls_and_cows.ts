@@ -8,38 +8,10 @@ export type BullsAndCows = {
   "address": "3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc",
   "metadata": {
     "name": "bullsAndCows",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "spec": "0.1.0"
   },
   "instructions": [
-    {
-      "name": "initialize",
-      "discriminator": [
-        175,
-        175,
-        109,
-        31,
-        13,
-        152,
-        155,
-        237
-      ],
-      "accounts": [
-        {
-          "name": "guessingAccount",
-          "writable": true
-        },
-        {
-          "name": "payer",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "systemProgram"
-        }
-      ],
-      "args": []
-    },
     {
       "name": "guess",
       "discriminator": [
@@ -55,7 +27,28 @@ export type BullsAndCows = {
       "accounts": [
         {
           "name": "guessingAccount",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  117,
+                  101,
+                  115,
+                  115,
+                  105,
+                  110,
+                  103,
+                  32,
+                  112,
+                  100,
+                  97
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "payer",
@@ -63,7 +56,8 @@ export type BullsAndCows = {
           "signer": true
         },
         {
-          "name": "systemProgram"
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -72,6 +66,56 @@ export type BullsAndCows = {
           "type": "u32"
         }
       ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "guessingAccount",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  117,
+                  101,
+                  115,
+                  115,
+                  105,
+                  110,
+                  103,
+                  32,
+                  112,
+                  100,
+                  97
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
     }
   ],
   "accounts": [

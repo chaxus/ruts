@@ -5,7 +5,7 @@ use solana_program::sysvar::Sysvar;
 declare_id!("3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc");
 
 #[program]
-pub mod anchor_bac {
+pub mod bulls_and_cows {
     use super::*;
     use std::cmp::Ordering;
 

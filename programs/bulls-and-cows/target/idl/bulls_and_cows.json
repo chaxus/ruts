@@ -1,48 +1,57 @@
 {
-  "version": "0.1.0",
-  "name": "bulls_and_cows",
+  "address": "3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc",
   "metadata": {
-    "address": "3wGUG3qnLtCZFg3ukqeQXNhVYjrr3Jai4RnzEDyqjphc"
+    "name": "bulls_and_cows",
+    "version": "0.0.0",
+    "spec": "0.1.0"
   },
   "instructions": [
     {
-      "name": "initialize",
-      "accounts": [
-        {
-          "name": "guessingAccount",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": []
-    },
-    {
       "name": "guess",
+      "discriminator": [
+        150,
+        196,
+        62,
+        128,
+        129,
+        236,
+        114,
+        40
+      ],
       "accounts": [
         {
-          "name": "guessingAccount",
-          "isMut": true,
-          "isSigner": false
+          "name": "guessing_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  117,
+                  101,
+                  115,
+                  115,
+                  105,
+                  110,
+                  103,
+                  32,
+                  112,
+                  100,
+                  97
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "payer",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -51,20 +60,71 @@
           "type": "u32"
         }
       ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "guessing_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  117,
+                  101,
+                  115,
+                  115,
+                  105,
+                  110,
+                  103,
+                  32,
+                  112,
+                  100,
+                  97
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
     }
   ],
   "accounts": [
     {
       "name": "GuessingAccount",
-      "type": {
-        "kind": "struct",
-        "fields": [
-          {
-            "name": "number",
-            "type": "u32"
-          }
-        ]
-      }
+      "discriminator": [
+        50,
+        96,
+        52,
+        86,
+        229,
+        191,
+        73,
+        144
+      ]
     }
   ],
   "errors": [
@@ -78,5 +138,19 @@
       "name": "NumberTooLarge",
       "msg": "Too larget"
     }
+  ],
+  "types": [
+    {
+      "name": "GuessingAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "number",
+            "type": "u32"
+          }
+        ]
+      }
+    }
   ]
-} 
+}
